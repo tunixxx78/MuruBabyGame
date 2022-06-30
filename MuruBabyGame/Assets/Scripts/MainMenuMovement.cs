@@ -9,6 +9,7 @@ public class MainMenuMovement : MonoBehaviour
     Rigidbody2D plrRB;
     [SerializeField] float moveSpeed;
     public Vector3 targetPosition;
+    bool ismoving = false;
     
 
     private void Start()
@@ -22,23 +23,31 @@ public class MainMenuMovement : MonoBehaviour
         {
             SetTargetPosition();
         }
+        if (ismoving)
+        {
+            MovePlayer();
+        }
         
     }
 
     private void SetTargetPosition()
     {
-        //targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        targetPosition.x = 2;
-        targetPosition.y = 4;
+        targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        //targetPosition.x = 2;
+        //targetPosition.y = 4;
         targetPosition.z = 0;
-        MovePlayer();
+
+        ismoving = true;
     }
 
     private void MovePlayer()
     {
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
 
-        
+        if (transform.position == targetPosition)
+        {
+            ismoving = false;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
