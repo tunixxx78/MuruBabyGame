@@ -33,8 +33,6 @@ public class MainMenuMovement : MonoBehaviour
     private void SetTargetPosition()
     {
         targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        //targetPosition.x = 2;
-        //targetPosition.y = 4;
         targetPosition.z = 0;
 
         ismoving = true;

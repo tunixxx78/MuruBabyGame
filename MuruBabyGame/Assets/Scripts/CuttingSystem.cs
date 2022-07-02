@@ -29,7 +29,8 @@ public class CuttingSystem : MonoBehaviour
 
             if (objectPhase == objectStates.Length - 1)
             {
-                Destroy(this.gameObject, 1f);
+                Destroy(this.gameObject, .21f);
+                FindObjectOfType<CookingSystem>().ChangeCookingPhase();
                 gameManager.foodItems.Remove(this.gameObject);
                 gameManager.canMove = true;
             }
