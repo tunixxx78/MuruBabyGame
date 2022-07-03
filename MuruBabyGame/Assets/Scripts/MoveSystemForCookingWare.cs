@@ -92,6 +92,6 @@ public class MoveSystemForCookingWare : MonoBehaviour
     {
         yield return new WaitForSeconds(3);
 
-        gameManager.CurrentFinale();
+        gameManager.HeatingUpFood();
     }
 }

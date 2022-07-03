@@ -9,16 +9,30 @@ public class GameManager : MonoBehaviour
 
     public GameObject cookingWare, correctForm, panInStove;
 
-    [SerializeField] GameObject levelClearedPanel;
+    [SerializeField] GameObject levelClearedPanel, thermoMeter, heaticonSpawner;
+
+    public int HeatAmount, maxHeat = 13;
+    public thermoBar thermoBar;
 
     private void Start()
     {
         canMove = true;
+        HeatAmount = 3;
+        thermoBar.SetMaxTemperature(maxHeat);
+        thermoBar.SetTemperature(HeatAmount);
         
     }
 
     private void Update()
     {
+        thermoBar.SetTemperature(HeatAmount);
+
+        if (HeatAmount >= maxHeat)
+        {
+            heaticonSpawner.SetActive(false);
+            CurrentFinale();
+        }
+
         if (foodItems.Count <= 0)
         {
             
@@ -30,6 +44,12 @@ public class GameManager : MonoBehaviour
         cookingWare.AddComponent<MoveSystemForCookingWare>();
         cookingWare.GetComponent<MoveSystemForCookingWare>().correctFormCookWare = correctForm;
         cookingWare.GetComponent<MoveSystemForCookingWare>().PanInStove = panInStove;
+    }
+
+    public void HeatingUpFood()
+    {
+        thermoMeter.SetActive(true);
+        heaticonSpawner.SetActive(true);
     }
 
     public void CurrentFinale()
