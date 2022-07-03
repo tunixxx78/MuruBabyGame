@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CookingSystem : MonoBehaviour
+public class EatingSystem : MonoBehaviour
 {
     [SerializeField] Sprite[] cookingPhases;
-    public int cookingPhase;
+    int cookingPhase;
     bool cantAdd = false;
 
     GameManager gameManager;
@@ -23,11 +23,22 @@ public class CookingSystem : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit2D hit2D = Physics2D.GetRayIntersection(ray);
+
+            if (hit2D.collider.CompareTag("Plate"))
+            {
+                ChangeCookingPhase();
+            }
+            else { return; }
+        }
 
         if (cookingPhase == cookingPhases.Length - 1 && cantAdd == false)
         {
             cantAdd = true;
-            FindObjectOfType<GameManager>().MoveCookingWare();
+            gameManager.CurrentFinale();
         }
     }
 
@@ -36,4 +47,5 @@ public class CookingSystem : MonoBehaviour
         cookingPhase++;
         GetComponent<SpriteRenderer>().sprite = cookingPhases[cookingPhase];
     }
+
 }

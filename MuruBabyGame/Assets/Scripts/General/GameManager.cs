@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public bool canMove = false;
+    public bool canMove = false, canEat = false;
     public List<GameObject> foodItems = new List<GameObject>();
 
-    public GameObject cookingWare, correctForm, panInStove;
+    public GameObject cookingWare, correctForm, panInStove, emptyPlate;
 
-    [SerializeField] GameObject levelClearedPanel, thermoMeter, heaticonSpawner;
+    [SerializeField] GameObject levelClearedPanel, thermoMeter, heaticonSpawner, panWithFood;
 
     public int HeatAmount, maxHeat = 13;
     public thermoBar thermoBar;
@@ -30,12 +30,21 @@ public class GameManager : MonoBehaviour
         if (HeatAmount >= maxHeat)
         {
             heaticonSpawner.SetActive(false);
-            CurrentFinale();
+            panInStove.SetActive(false);
+            thermoMeter.SetActive(false);
+            panWithFood.SetActive(true);
+            emptyPlate.SetActive(true);
+
+            canMove = true;
         }
 
         if (foodItems.Count <= 0)
         {
             
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            panWithFood.SetActive(true);
         }
     }
 
