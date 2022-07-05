@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: ff4c4fc4b5ba14cdca51a5eca05dac0c
   - enabled: 1
+    path: Assets/Scenes/TransitScene.unity
+    guid: e3836222859ea480191d6c0466778673
+  - enabled: 1
     path: Assets/Scenes/GamePlayScene_Base.unity
     guid: 94e9b45bde04b436bbe01892ea9f4dee
   m_configObjects: {}

@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject cookingWare, correctForm, panInStove, emptyPlate;
 
+    [SerializeField] Animator panAnimator, readyFoodAnimator;
     [SerializeField] GameObject levelClearedPanel, thermoMeter, heaticonSpawner, panWithFood;
 
     public int HeatAmount, maxHeat = 13;
@@ -36,6 +37,8 @@ public class GameManager : MonoBehaviour
             emptyPlate.SetActive(true);
 
             canMove = true;
+
+            readyFoodAnimator.SetTrigger("ReadyNotice");
         }
 
         if (foodItems.Count <= 0)
@@ -53,6 +56,7 @@ public class GameManager : MonoBehaviour
         cookingWare.AddComponent<MoveSystemForCookingWare>();
         cookingWare.GetComponent<MoveSystemForCookingWare>().correctFormCookWare = correctForm;
         cookingWare.GetComponent<MoveSystemForCookingWare>().PanInStove = panInStove;
+        panAnimator.SetTrigger("PanNotice");
     }
 
     public void HeatingUpFood()

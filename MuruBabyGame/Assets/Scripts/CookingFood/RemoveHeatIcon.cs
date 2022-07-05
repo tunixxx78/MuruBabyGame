@@ -23,6 +23,7 @@ public class RemoveHeatIcon : MonoBehaviour
 
         if (this.gameObject.transform.position.y <= -5)
         {
+            gameManager.HeatAmount--;
             Destroy(this.gameObject);
             heatIconSpawner.SpawnHeatIcons();
         }

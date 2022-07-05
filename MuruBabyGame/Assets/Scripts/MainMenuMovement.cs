@@ -10,16 +10,20 @@ public class MainMenuMovement : MonoBehaviour
     [SerializeField] float moveSpeed;
     public Vector3 targetPosition;
     bool ismoving = false;
+
+    [SerializeField] GameObject enterGamePanel, parentObject;
     
 
     private void Start()
     {
         plrRB = GetComponent<Rigidbody2D>();
+        parentObject = GameObject.Find("Canvas");
+        enterGamePanel = parentObject.transform.Find("EnterGamePanel").gameObject;
     }
 
     private void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && enterGamePanel.activeSelf == false)
         {
             SetTargetPosition();
         }
@@ -54,7 +58,11 @@ public class MainMenuMovement : MonoBehaviour
         {
             targetIndex = collision.GetComponent<TargetInformation>().targetSceneIndex;
 
-            SceneManager.LoadScene(targetIndex);
+            PlayerPrefs.SetInt("TargetLevelIndex", targetIndex);
+            enterGamePanel.SetActive(true);
+            
         }
     }
+
+
 }

@@ -7,6 +7,8 @@ TagManager:
   - Target
   - HeatIcon
   - Plate
+  - TransitTarget
+  - Collectible
   layers:
   - Default
   - TransparentFX
@@ -15,7 +17,7 @@ TagManager:
   - Water
   - UI
   - HeatIcon
-  - 
+  - Ground
   - 
   - 
   - 

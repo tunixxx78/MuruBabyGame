@@ -77,7 +77,7 @@ public class MoveSystemForCookingWare : MonoBehaviour
             PanInStove.SetActive(true);
             correctFormCookWare.SetActive(false);
             this.gameObject.GetComponent<SpriteRenderer>().sprite = null;
-
+            this.gameObject.GetComponent<PolygonCollider2D>().enabled = false;
             
 
         }
@@ -90,7 +90,7 @@ public class MoveSystemForCookingWare : MonoBehaviour
 
     IEnumerator Continue()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1);
 
         gameManager.HeatingUpFood();
     }
