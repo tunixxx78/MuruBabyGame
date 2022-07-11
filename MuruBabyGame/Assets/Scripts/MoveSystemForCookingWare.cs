@@ -45,6 +45,8 @@ public class MoveSystemForCookingWare : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
+                GetComponentInParent<Animator>().enabled = false;
+
                 correctFormCookWare.SetActive(true);
 
                 Vector3 mousePos;

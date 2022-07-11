@@ -45,6 +45,9 @@ public class ReadyFoodMoveSystem : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
+
+                GetComponentInParent<Animator>().enabled = false;
+
                 correctFormReadyFood.SetActive(true);
 
                 Vector3 mousePos;

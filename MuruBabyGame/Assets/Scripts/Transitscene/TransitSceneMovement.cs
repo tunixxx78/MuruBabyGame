@@ -13,6 +13,9 @@ public class TransitSceneMovement : MonoBehaviour
     [SerializeField] Transform groundPoint;
     [SerializeField] LayerMask groundLayer;
 
+    GameObject sceneChangeOut;
+    float animationDuration;
+
     private void Awake()
     {
         plrRB = GetComponent<Rigidbody2D>();
@@ -24,6 +27,9 @@ public class TransitSceneMovement : MonoBehaviour
     {
         targetIndex = PlayerPrefs.GetInt("TargetLevelIndex");
         followCam.target = this.gameObject.transform;
+
+        sceneChangeOut = FindObjectOfType<GameSceneManager>().sceneOutPanel;
+        animationDuration = FindObjectOfType<GameSceneManager>().animationDuration;
     }
 
     private void Update()
@@ -36,7 +42,11 @@ public class TransitSceneMovement : MonoBehaviour
     {
         if(collision.gameObject.tag == "TransitTarget")
         {
-            SceneManager.LoadScene(targetIndex);
+            sceneChangeOut.SetActive(true);
+
+            StartCoroutine(ScangeSceneNow());
+
+            //SceneManager.LoadScene(targetIndex);
         }
     }
 
@@ -62,5 +72,12 @@ public class TransitSceneMovement : MonoBehaviour
         {
             isGrounded = false;
         }
+    }
+
+    IEnumerator ScangeSceneNow()
+    {
+        yield return new WaitForSeconds(animationDuration);
+
+        SceneManager.LoadScene(targetIndex);
     }
 }

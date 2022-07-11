@@ -9,11 +9,15 @@ public class RemoveHeatIcon : MonoBehaviour
     Rigidbody2D iconRB;
     [SerializeField] float moveSpeed;
 
+    SFX sFX;
+
     private void Awake()
     {
         heatIconSpawner = FindObjectOfType<HeatIconSpawner>();
         gameManager = FindObjectOfType<GameManager>();
         iconRB = GetComponent<Rigidbody2D>();
+
+        sFX = FindObjectOfType<SFX>();
     }
 
     private void Update()
@@ -29,6 +33,7 @@ public class RemoveHeatIcon : MonoBehaviour
         }
         if (gameManager.HeatAmount >= gameManager.maxHeat)
         {
+            //sFX.frying.Stop();
             Destroy(this.gameObject);
         }
 
@@ -48,6 +53,8 @@ public class RemoveHeatIcon : MonoBehaviour
 
             if (hit2D.collider.CompareTag("HeatIcon"))
             {
+                sFX.frying.Stop();
+                sFX.frying.Play();
                 heatIconSpawner.SpawnHeatIcons();
                 gameManager.HeatAmount++;
                 Destroy(hit2D.collider.gameObject);

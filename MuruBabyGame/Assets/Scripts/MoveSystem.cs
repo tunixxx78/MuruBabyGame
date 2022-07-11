@@ -47,6 +47,7 @@ public class MoveSystem : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
+                GetComponentInParent<Animator>().enabled = false;
                 correctForm.SetActive(true);
                 Vector3 mousePos;
                 mousePos = Input.mousePosition;

@@ -32,6 +32,11 @@ public class PlayerInfo : MonoBehaviour
 
     private void Start()
     {
+        if (FindObjectOfType<GameSceneManager>().gameStatus == 1)
+        {
+            plrSelectionPanel.SetActive(false);
+            SpawnSellectedPlayer();
+        }
         if (PlayerPrefs.HasKey("MyCharacter"))
         {
             mySellectedCharacter = PlayerPrefs.GetInt("MyCharacter");
@@ -45,6 +50,7 @@ public class PlayerInfo : MonoBehaviour
 
     public void SpawnSellectedPlayer()
     {
+        
         Instantiate(allCharacters[mySellectedCharacter], plrSpawnPosition.position, Quaternion.identity);
         plrSelectionPanel.SetActive(false);
     }
