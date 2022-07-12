@@ -68,7 +68,7 @@ public class ReadyFoodMoveSystem : MonoBehaviour
         moving = false;
         correctFormReadyFood.SetActive(false);
 
-        if (Mathf.Abs(this.transform.localPosition.x - correctFormReadyFood.transform.localPosition.x) <= .5f && Mathf.Abs(this.transform.localPosition.y - correctFormReadyFood.transform.localPosition.y) <= .5f)
+        if (Mathf.Abs(this.transform.localPosition.x - correctFormReadyFood.transform.localPosition.x) <= 1.5f && Mathf.Abs(this.transform.localPosition.y - correctFormReadyFood.transform.localPosition.y) <= 1.5f)
         {
             this.transform.position = new Vector3(correctFormReadyFood.transform.position.x, correctFormReadyFood.transform.position.y, correctFormReadyFood.transform.position.z);
 
