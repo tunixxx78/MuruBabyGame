@@ -1001,7 +1001,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dishNames:
   - Ratatuille
-  - Pasta con Aglio
+  - Tirolin Pata
   collectibleImages:
   - {fileID: 21300000, guid: 22c85e2796518456ca76dfbc1d975c3d, type: 3}
   - {fileID: 21300000, guid: 2c64f804cd8134d8cb1ed98b16ce966f, type: 3}
