@@ -15,6 +15,7 @@ public class ItemCollection : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            GetComponent<Collider2D>().enabled = false;
             itemAnimator.SetTrigger("Collected");
             Destroy(this.gameObject, 1.2f);
         }

@@ -5,5 +5,10 @@ using UnityEngine.Audio;
 
 public class SFX : MonoBehaviour
 {
-    public AudioSource button, KitchenAmbient, frying;
+    public AudioSource button, KitchenAmbient, frying, flying, chopping, collecting;
+
+    public void ButtonSound()
+    {
+        button.Play();
+    }
 }

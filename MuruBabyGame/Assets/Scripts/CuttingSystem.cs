@@ -8,11 +8,13 @@ public class CuttingSystem : MonoBehaviour
     int objectPhase;
 
     GameManager gameManager;
+    SFX sFX;
 
     private void Awake()
     {
         objectPhase = 0;
         gameManager = FindObjectOfType<GameManager>();
+        sFX = FindObjectOfType<SFX>();
     }
 
     private void Start()
@@ -25,6 +27,7 @@ public class CuttingSystem : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             objectPhase++;
+            sFX.chopping.Play();
             GetComponent<SpriteRenderer>().sprite = objectStates[objectPhase];
 
             if (objectPhase == objectStates.Length - 1)

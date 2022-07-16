@@ -37,7 +37,7 @@ public class RemoveHeatIcon : MonoBehaviour
         }
         if (gameManager.HeatAmount >= gameManager.maxHeat)
         {
-            //sFX.frying.Stop();
+            sFX.frying.Stop();
             Destroy(this.gameObject);
         }
 

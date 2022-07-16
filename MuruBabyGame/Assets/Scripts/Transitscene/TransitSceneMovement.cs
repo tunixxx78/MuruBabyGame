@@ -16,10 +16,13 @@ public class TransitSceneMovement : MonoBehaviour
     GameObject sceneChangeOut;
     float animationDuration;
 
+    SFX sFX;
+
     private void Awake()
     {
         plrRB = GetComponent<Rigidbody2D>();
         followCam = FindObjectOfType<FollowCam>();
+        sFX = FindObjectOfType<SFX>();
         
     }
 
@@ -47,6 +50,10 @@ public class TransitSceneMovement : MonoBehaviour
             StartCoroutine(ScangeSceneNow());
 
             //SceneManager.LoadScene(targetIndex);
+        }
+        if(collision.gameObject.tag == "Collectible")
+        {
+            sFX.collecting.Play();
         }
     }
 
