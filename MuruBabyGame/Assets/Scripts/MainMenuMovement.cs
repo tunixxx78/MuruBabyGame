@@ -56,23 +56,35 @@ public class MainMenuMovement : MonoBehaviour
             avatarAnimator.SetBool("IsFlying", false);
         }
         
-        if(targetPosition.x < this.transform.position.x)
+        if(targetPosition.x < this.transform.position.x && ismoving == true)
         {
             transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
-        else
+        if (targetPosition.x > this.transform.position.x && ismoving == true)
         {
             transform.localRotation = Quaternion.Euler(0, 180, 0);
+        }
+        else
+        {
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
         
     }
 
     private void SetTargetPosition()
     {
-        targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        targetPosition.z = 0;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit2D hit2D = Physics2D.GetRayIntersection(ray);
 
-        ismoving = true;
+        if (hit2D.collider.CompareTag("Target") || hit2D.collider.CompareTag("SecondaryTarget"))
+        {
+            targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            targetPosition.z = 0;
+
+            ismoving = true;
+        }
+
+        
     }
 
     private void MovePlayer()

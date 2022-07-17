@@ -9,11 +9,13 @@ public class EatingSystem : MonoBehaviour
     bool cantAdd = false;
 
     GameManager gameManager;
+    SFX sFX;
 
     private void Awake()
     {
         cookingPhase = 0;
         gameManager = FindObjectOfType<GameManager>();
+        sFX = FindObjectOfType<SFX>();
     }
 
     private void Start()
@@ -44,6 +46,7 @@ public class EatingSystem : MonoBehaviour
 
     public void ChangeCookingPhase()
     {
+        sFX.eating.Play();
         cookingPhase++;
         GetComponent<SpriteRenderer>().sprite = cookingPhases[cookingPhase];
     }

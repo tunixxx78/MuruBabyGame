@@ -17,10 +17,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GamePlayScene_Base.unity
     guid: 94e9b45bde04b436bbe01892ea9f4dee
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/GamePlayItalyOne.unity
     guid: 7ca2115600fed40f7a10cf565a830add
+  - enabled: 1
+    path: Assets/Scenes/GamePlayItaly.unity
+    guid: d2a2b522264264bd9b2539a7f764c3fa
   - enabled: 0
     path: 
-    guid: b1254464d4c7540e38a117c8d056366e
+    guid: 00000000000000000000000000000000
   m_configObjects: {}
