@@ -10,6 +10,7 @@ public class GameSceneManager : MonoBehaviour
 
     AudioSource music;
     SFX sFX;
+    GeneralVoices generalVoices;
     [SerializeField] float currentVolume, startVolume, wantedVolume;
 
     public int gameStatus;
@@ -19,6 +20,7 @@ public class GameSceneManager : MonoBehaviour
         Screen.SetResolution(2688, 1242, true);
         music = GameObject.Find("Music").GetComponent<AudioSource>();
         sFX = FindObjectOfType<SFX>();
+        generalVoices = FindObjectOfType<GeneralVoices>();
         currentVolume = 0;
         Scene scene = SceneManager.GetActiveScene();
         if (scene.buildIndex == 0)
@@ -41,6 +43,7 @@ public class GameSceneManager : MonoBehaviour
 
     public void ChangeScene(int sceneIndex)
     {
+        generalVoices.eteenpain.Play();
         sFX.button.Play();
         StartCoroutine(ScangeSceneNow(sceneIndex));
         sceneOutPanel.SetActive(true);

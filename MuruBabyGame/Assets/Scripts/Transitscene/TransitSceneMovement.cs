@@ -18,6 +18,8 @@ public class TransitSceneMovement : MonoBehaviour
 
     SFX sFX;
 
+    [SerializeField] Animator avatarAnimator;
+
     private void Awake()
     {
         plrRB = GetComponent<Rigidbody2D>();
@@ -33,11 +35,20 @@ public class TransitSceneMovement : MonoBehaviour
 
         sceneChangeOut = FindObjectOfType<GameSceneManager>().sceneOutPanel;
         animationDuration = FindObjectOfType<GameSceneManager>().animationDuration;
+
+        avatarAnimator = GetComponentInChildren<Animator>();
     }
 
     private void Update()
     {
         plrRB.AddForce(Vector3.right * MoveSpeed * Time.deltaTime, ForceMode2D.Impulse);
+
+        if (isGrounded)
+        {
+            avatarAnimator.SetBool("AlvarRun", true);
+        }
+        else { avatarAnimator.SetBool("AlvarRun", false); }
+        
         CheckIfGrounded();
     }
 
@@ -61,6 +72,8 @@ public class TransitSceneMovement : MonoBehaviour
     {
         if (isGrounded)
         {
+            avatarAnimator.SetTrigger("AlvarJump");
+            avatarAnimator.SetBool("AlvarRun", false);
             plrRB.velocity = new Vector3(plrRB.velocity.y, jumpForce);
         }
         CheckIfGrounded();

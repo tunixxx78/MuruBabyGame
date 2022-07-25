@@ -8,6 +8,7 @@ public class PlayerInfo : MonoBehaviour
     public static PlayerInfo pI;
     public int mySellectedCharacter;
     public GameObject[] allCharacters;
+    public AudioSource[] characterVoices;
 
     [SerializeField] Transform plrSpawnPosition;
     [SerializeField] GameObject plrSelectionPanel;
@@ -53,5 +54,10 @@ public class PlayerInfo : MonoBehaviour
         
         Instantiate(allCharacters[mySellectedCharacter], plrSpawnPosition.position, Quaternion.identity);
         plrSelectionPanel.SetActive(false);
+
+        characterVoices[mySellectedCharacter].GetComponent<PlrVoices>().voices[0].Play();
+        
+
+
     }
 }

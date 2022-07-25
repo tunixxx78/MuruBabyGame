@@ -16,6 +16,9 @@ public class MainMenuMovement : MonoBehaviour
     Animator avatarAnimator;
 
     SFX sFX;
+    PlayerInfo playerInfo;
+
+    [SerializeField] int characterIndexNumber;
 
     private void Awake()
     {
@@ -29,6 +32,8 @@ public class MainMenuMovement : MonoBehaviour
         avatarAnimator = playerAvatar.GetComponent<Animator>();
         parentObject = GameObject.Find("Canvas");
         enterGamePanel = parentObject.transform.Find("EnterGamePanel").gameObject;
+
+        playerInfo = FindObjectOfType<PlayerInfo>();
     }
 
     private void Update()
@@ -82,6 +87,10 @@ public class MainMenuMovement : MonoBehaviour
             targetPosition.z = 0;
 
             ismoving = true;
+
+            characterIndexNumber = playerInfo.mySellectedCharacter;
+
+            playerInfo.characterVoices[playerInfo.mySellectedCharacter].GetComponent<PlrVoices>().voices[1].Play();
         }
 
         
@@ -89,6 +98,8 @@ public class MainMenuMovement : MonoBehaviour
 
     private void MovePlayer()
     {
+
+        
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
 
         if (transform.position == targetPosition)

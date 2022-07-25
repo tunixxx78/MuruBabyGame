@@ -6,10 +6,12 @@ public class CharacterMenuController : MonoBehaviour
 {
 
     SFX sFX;
+    
 
     private void Awake()
     {
         sFX = FindObjectOfType<SFX>();
+        
     }
 
     public void OnClickCharacterPick(int whichCharacter)
