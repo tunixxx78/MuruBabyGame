@@ -43,7 +43,12 @@ public class GameSceneManager : MonoBehaviour
 
     public void ChangeScene(int sceneIndex)
     {
-        generalVoices.eteenpain.Play();
+        Scene scene = SceneManager.GetActiveScene();
+        if (scene.buildIndex != 0)
+        {
+            generalVoices.eteenpain.Play();
+        }
+            
         sFX.button.Play();
         StartCoroutine(ScangeSceneNow(sceneIndex));
         sceneOutPanel.SetActive(true);

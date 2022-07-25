@@ -1597,7 +1597,7 @@ MonoBehaviour:
   animationDuration: 2
   currentVolume: 0
   startVolume: 0
-  wantedVolume: 0.5
+  wantedVolume: 0.4
   gameStatus: 0
 --- !u!4 &863147076
 Transform:

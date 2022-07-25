@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 1e451316ca765470ab2b00fa2983923d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 78a22f90dab6347a59a9b66abeff19ee, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -134,7 +134,7 @@ Transform:
   m_GameObject: {fileID: 9178514039134237663}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.16, y: 2.32, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 748859390523990894}
@@ -182,7 +182,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 1e451316ca765470ab2b00fa2983923d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 359b92e04131d4b279773fe4d4379bbe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -224,11 +224,12 @@ MonoBehaviour:
   moveSpeed: 1.5
   targetPosition: {x: 0, y: 0, z: 0}
   character: {fileID: 0}
-  charWithoutPlane: {fileID: 21300000, guid: 1e451316ca765470ab2b00fa2983923d, type: 3}
-  charWithPlane: {fileID: 21300000, guid: 70f7f3a47e8cd44f38c4432604b0515a, type: 3}
+  charWithoutPlane: {fileID: 21300000, guid: 78a22f90dab6347a59a9b66abeff19ee, type: 3}
+  charWithPlane: {fileID: 21300000, guid: 2b8d098af889343459b58c868a24d9fb, type: 3}
   enterGamePanel: {fileID: 0}
   parentObject: {fileID: 0}
   playerAvatar: {fileID: 5128866286047047018}
+  characterIndexNumber: 0
 --- !u!50 &9178514039134237656
 Rigidbody2D:
   serializedVersion: 4
