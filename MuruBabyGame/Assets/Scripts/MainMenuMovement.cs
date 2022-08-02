@@ -81,7 +81,7 @@ public class MainMenuMovement : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit2D hit2D = Physics2D.GetRayIntersection(ray);
 
-        if (hit2D.collider.CompareTag("Target") || hit2D.collider.CompareTag("SecondaryTarget"))
+        if (hit2D.collider.CompareTag("Target") || hit2D.collider.CompareTag("LayoverTarget"))
         {
             targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             targetPosition.z = 0;
@@ -117,6 +117,15 @@ public class MainMenuMovement : MonoBehaviour
             PlayerPrefs.SetInt("TargetLevelIndex", targetIndex);
             enterGamePanel.SetActive(true);
             
+        }
+
+        if(collision.gameObject.tag == "LayoverTarget")
+        {
+            targetIndex = collision.GetComponent<TargetInformation>().targetSceneIndex;
+
+            PlayerPrefs.SetInt("TargetLevelIndex", targetIndex);
+
+            FindObjectOfType<GameSceneManager>().ChangeScene(targetIndex);
         }
     }
 

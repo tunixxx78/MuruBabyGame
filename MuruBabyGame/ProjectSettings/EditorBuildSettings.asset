@@ -19,7 +19,7 @@ EditorBuildSettings:
     guid: 94e9b45bde04b436bbe01892ea9f4dee
   - enabled: 0
     path: 
-    guid: 7ca2115600fed40f7a10cf565a830add
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/GamePlayItaly.unity
     guid: d2a2b522264264bd9b2539a7f764c3fa
@@ -29,4 +29,10 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/ExtraScene.unity
+    guid: 66ea6ff50d8c8448cbe36aaac5db4f65
+  - enabled: 1
+    path: Assets/Scenes/MemoryGameScene.unity
+    guid: 9205b16bf8e764637b0f92b378bf9b7f
   m_configObjects: {}
