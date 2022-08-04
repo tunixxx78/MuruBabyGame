@@ -868,6 +868,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   avatarAnimator: {fileID: 0}
+  collectibleBaskets:
+  - {fileID: 21300000, guid: 8cb63d73eb54b44c7ab84c959f5b25d0, type: 3}
+  - {fileID: 21300000, guid: e02976da7178c4432ba66784341c85a1, type: 3}
+  - {fileID: 21300000, guid: c4810c976cc704270abc522f85fa1596, type: 3}
+  - {fileID: 21300000, guid: d4ee8157dfe53438ebd113710aac2aab, type: 3}
 --- !u!1 &6049295647289553494
 GameObject:
   m_ObjectHideFlags: 0

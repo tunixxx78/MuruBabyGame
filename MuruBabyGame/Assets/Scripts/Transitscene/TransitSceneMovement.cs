@@ -20,6 +20,11 @@ public class TransitSceneMovement : MonoBehaviour
 
     [SerializeField] Animator avatarAnimator;
 
+    [SerializeField] Sprite[] collectibleBaskets;
+    [SerializeField] Sprite concratsBasket;
+    
+    
+
     private void Awake()
     {
         plrRB = GetComponent<Rigidbody2D>();
@@ -37,6 +42,12 @@ public class TransitSceneMovement : MonoBehaviour
         animationDuration = FindObjectOfType<GameSceneManager>().animationDuration;
 
         avatarAnimator = GetComponentInChildren<Animator>();
+
+        //concratsBasket = GameObject.Find("incridientsBasket").GetComponent<SpriteRenderer>().sprite;
+        concratsBasket = collectibleBaskets[targetIndex - 3];
+
+        GameObject.Find("incridientsBasket").GetComponent<SpriteRenderer>().sprite = concratsBasket;
+       
     }
 
     private void Update()
@@ -56,7 +67,10 @@ public class TransitSceneMovement : MonoBehaviour
     {
         if(collision.gameObject.tag == "TransitTarget")
         {
-            sceneChangeOut.SetActive(true);
+            GameObject.Find("incridientsBasket").GetComponent<SpriteRenderer>().enabled = true;
+            GameObject.Find("incridientsBasket").GetComponent<Rigidbody2D>().gravityScale = 1;
+
+            StartCoroutine(StartCloudAnimation());
 
             StartCoroutine(ScangeSceneNow());
 
@@ -99,5 +113,11 @@ public class TransitSceneMovement : MonoBehaviour
         yield return new WaitForSeconds(animationDuration);
 
         SceneManager.LoadScene(targetIndex);
+    }
+    IEnumerator StartCloudAnimation()
+    {
+        yield return new WaitForSeconds(1);
+
+        sceneChangeOut.SetActive(true);
     }
 }
