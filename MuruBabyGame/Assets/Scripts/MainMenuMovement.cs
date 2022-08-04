@@ -81,7 +81,7 @@ public class MainMenuMovement : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit2D hit2D = Physics2D.GetRayIntersection(ray);
 
-        if (hit2D.collider.CompareTag("Target") || hit2D.collider.CompareTag("LayoverTarget"))
+        if (hit2D.collider.CompareTag("Target") || hit2D.collider.CompareTag("LayoverTarget") || hit2D.collider.CompareTag("SecondaryTarget"))
         {
             targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             targetPosition.z = 0;
@@ -90,7 +90,7 @@ public class MainMenuMovement : MonoBehaviour
 
             characterIndexNumber = playerInfo.mySellectedCharacter;
 
-            playerInfo.characterVoices[playerInfo.mySellectedCharacter].GetComponent<PlrVoices>().voices[1].Play();
+            FindObjectOfType<PlayerInfo>().characterVoices[playerInfo.mySellectedCharacter].GetComponent<PlrVoices>().voices[1].Play();
         }
 
         

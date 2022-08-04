@@ -12,7 +12,7 @@ public class PlayerInfo : MonoBehaviour
 
     [SerializeField] Transform plrSpawnPosition;
     [SerializeField] GameObject plrSelectionPanel;
-
+    
     private void OnEnable()
     {
         if (PlayerInfo.pI == null)
@@ -29,6 +29,13 @@ public class PlayerInfo : MonoBehaviour
         }
 
         DontDestroyOnLoad(this.gameObject);
+    }
+    
+    private void Awake()
+    {
+        characterVoices[0] = GameObject.Find("AlvarVoices").GetComponent<AudioSource>();
+        characterVoices[1] = GameObject.Find("TaimiVoices").GetComponent<AudioSource>();
+
     }
 
     private void Start()
@@ -55,6 +62,8 @@ public class PlayerInfo : MonoBehaviour
         
         Instantiate(allCharacters[mySellectedCharacter], plrSpawnPosition.position, Quaternion.identity);
         plrSelectionPanel.SetActive(false);
+        
+
 
         characterVoices[mySellectedCharacter].GetComponent<PlrVoices>().voices[0].Play();
         

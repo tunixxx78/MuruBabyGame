@@ -26,6 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GamePlayAustria.unity
     guid: 1e3dd392dd96749869936b5374a37922
+  - enabled: 1
+    path: Assets/Scenes/GamePlayBelgian.unity
+    guid: b81af5797fb364bf8adeb65911c729ef
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000

@@ -16,6 +16,7 @@ public class CharacterMenuController : MonoBehaviour
 
     public void OnClickCharacterPick(int whichCharacter)
     {
+        
         if (PlayerInfo.pI != null)
         {
             sFX.button.Play();
@@ -28,5 +29,6 @@ public class CharacterMenuController : MonoBehaviour
             PlayerInfo.pI.SpawnSellectedPlayer();
 
         }
+
     }
 }
