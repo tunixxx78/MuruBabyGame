@@ -11,6 +11,7 @@ TagManager:
   - Collectible
   - SecondaryTarget
   - LayoverTarget
+  - Target1
   layers:
   - Default
   - TransparentFX

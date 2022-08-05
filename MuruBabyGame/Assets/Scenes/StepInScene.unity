@@ -260,7 +260,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2bbba076883ca9947b8e1331948a4ea3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5365de2ad31cb4ea0b49c5ae9fafa5f7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1064,7 +1064,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f8e71f608f3b241ce9e87c99e2dba2f4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5365de2ad31cb4ea0b49c5ae9fafa5f7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2495,6 +2495,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7741920571093385082, guid: 9370bc3c99a904ec59bbbf2c689817d1, type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0fb363ae6f6d54f7394ab3fb9429331b, type: 3}
+    - target: {fileID: 7741920571093385082, guid: 9370bc3c99a904ec59bbbf2c689817d1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -2530,6 +2534,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 7741920571093385083, guid: 9370bc3c99a904ec59bbbf2c689817d1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6249ff77b7ba34f0aabc649fe98a0509, type: 3}
+    - target: {fileID: 7741920571093385083, guid: 9370bc3c99a904ec59bbbf2c689817d1, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7741920571755655138, guid: 9370bc3c99a904ec59bbbf2c689817d1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7741920571755655140, guid: 9370bc3c99a904ec59bbbf2c689817d1, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -2549,6 +2565,10 @@ PrefabInstance:
     - target: {fileID: 7741920571755655140, guid: 9370bc3c99a904ec59bbbf2c689817d1, type: 3}
       propertyPath: m_Color.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7741920571939861391, guid: 9370bc3c99a904ec59bbbf2c689817d1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9370bc3c99a904ec59bbbf2c689817d1, type: 3}

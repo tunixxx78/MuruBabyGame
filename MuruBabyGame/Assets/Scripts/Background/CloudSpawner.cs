@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class CloudSpawner : MonoBehaviour
 {
-    [SerializeField] GameObject cloudPrefab, cloudInstance;
+    [SerializeField] GameObject[] cloudPrefab;
+    [SerializeField] GameObject cloudInstance;
     [SerializeField] Transform[] cloudSpawnPoints;
     [SerializeField] float spawnDelay, minDelay, maxDelay;
 
@@ -17,7 +18,8 @@ public class CloudSpawner : MonoBehaviour
     {
         for (int i = 0; i < cloudSpawnPoints.Length; i++)
         {
-            cloudInstance =  Instantiate(cloudPrefab, cloudSpawnPoints[i].position, Quaternion.identity);
+            int cloud = Random.Range(0, cloudPrefab.Length);
+            cloudInstance =  Instantiate(cloudPrefab[cloud], cloudSpawnPoints[i].position, Quaternion.identity);
             Destroy(cloudInstance, 10f);
         }
 

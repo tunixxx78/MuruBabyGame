@@ -83,8 +83,17 @@ public class MainMenuMovement : MonoBehaviour
 
         if (hit2D.collider.CompareTag("Target") || hit2D.collider.CompareTag("LayoverTarget") || hit2D.collider.CompareTag("SecondaryTarget"))
         {
-            targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            targetPosition.z = 0;
+            if (hit2D.collider.CompareTag("Target"))
+            {
+                targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition + new Vector3(-100, 200, 0));
+                targetPosition.z = 0;
+            }
+            else
+            {
+                targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                targetPosition.z = 0;
+            }
+            
 
             ismoving = true;
 
@@ -110,9 +119,9 @@ public class MainMenuMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Target")
+        if (collision.gameObject.tag == "Target1")
         {
-            targetIndex = collision.GetComponent<TargetInformation>().targetSceneIndex;
+            targetIndex = collision.GetComponentInChildren<TargetInformation>().targetSceneIndex;
 
             PlayerPrefs.SetInt("TargetLevelIndex", targetIndex);
             enterGamePanel.SetActive(true);
