@@ -40,6 +40,8 @@ public class PlayerInfo : MonoBehaviour
 
     private void Start()
     {
+        
+
         if (FindObjectOfType<GameSceneManager>().gameStatus == 1)
         {
             plrSelectionPanel.SetActive(false);

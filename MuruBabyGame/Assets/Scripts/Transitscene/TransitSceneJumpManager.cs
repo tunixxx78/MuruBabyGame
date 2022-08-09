@@ -7,6 +7,8 @@ public class TransitSceneJumpManager : MonoBehaviour
     TransitSceneMovement transitSceneMovement;
     GeneralVoices generalVoices;
 
+    
+
     private void Awake()
     {
         generalVoices = FindObjectOfType<GeneralVoices>();
@@ -14,8 +16,9 @@ public class TransitSceneJumpManager : MonoBehaviour
 
     private void Start()
     {
-        generalVoices.keraa.Play();
+        //generalVoices.keraa.Play();
         Invoke("startShit", .01f);
+        
     }
 
     void startShit()
@@ -26,5 +29,6 @@ public class TransitSceneJumpManager : MonoBehaviour
     public void JumpNow()
     {
         transitSceneMovement.Jump();
+        
     }
 }

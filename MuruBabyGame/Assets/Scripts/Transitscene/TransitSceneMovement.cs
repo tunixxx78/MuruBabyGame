@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class TransitSceneMovement : MonoBehaviour
 {
     Rigidbody2D plrRB;
-    bool isGrounded = false;
+    bool isGrounded = false, isPlaying = false;
     [SerializeField] float MoveSpeed, jumpForce, checkGroundRadius;
     FollowCam followCam;
     int targetIndex;
@@ -22,19 +22,25 @@ public class TransitSceneMovement : MonoBehaviour
 
     [SerializeField] Sprite[] collectibleBaskets;
     [SerializeField] Sprite concratsBasket;
-    
-    
+
+    [SerializeField] PlayerInfo playerInfo;
 
     private void Awake()
     {
         plrRB = GetComponent<Rigidbody2D>();
         followCam = FindObjectOfType<FollowCam>();
         sFX = FindObjectOfType<SFX>();
+
+        playerInfo = FindObjectOfType<PlayerInfo>();
         
     }
 
     private void Start()
     {
+        playerInfo.characterVoices[0] = GameObject.Find("AlvarVoices").GetComponent<AudioSource>();
+        playerInfo.characterVoices[1] = GameObject.Find("TaimiVoices").GetComponent<AudioSource>();
+
+
         targetIndex = PlayerPrefs.GetInt("TargetLevelIndex");
         followCam.target = this.gameObject.transform;
 
@@ -47,7 +53,9 @@ public class TransitSceneMovement : MonoBehaviour
         concratsBasket = collectibleBaskets[targetIndex - 3];
 
         GameObject.Find("incridientsBasket").GetComponent<SpriteRenderer>().sprite = concratsBasket;
-       
+
+        FindObjectOfType<PlayerInfo>().characterVoices[playerInfo.mySellectedCharacter].GetComponent<PlrVoices>().voices[2].Play();
+
     }
 
     private void Update()
@@ -69,6 +77,13 @@ public class TransitSceneMovement : MonoBehaviour
         {
             GameObject.Find("incridientsBasket").GetComponent<SpriteRenderer>().enabled = true;
             GameObject.Find("incridientsBasket").GetComponent<Rigidbody2D>().gravityScale = 1;
+
+            if(isPlaying == false)
+            {
+                FindObjectOfType<PlayerInfo>().characterVoices[playerInfo.mySellectedCharacter].GetComponent<PlrVoices>().voices[3].Play();
+            }
+
+            isPlaying = true;
 
             StartCoroutine(StartCloudAnimation());
 
