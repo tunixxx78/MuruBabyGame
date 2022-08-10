@@ -23,9 +23,11 @@ public class GameController : MonoBehaviour
     GeneralVoices generalVoices;
     bool cantplay = false;
 
+    [SerializeField] PlayerInfo playerInfo;
+
     private void Awake()
     {
-        generalVoices = FindObjectOfType<GeneralVoices>();
+        playerInfo = FindObjectOfType<PlayerInfo>();
     }
 
     private int[] Randomizer(int[] locations)
@@ -45,8 +47,7 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
-        //vaihda tähän oikea ääni
-        generalVoices.palapeli.Play();
+        
 
         int[] locations = { 0, 0, 1, 1, 2, 2 };
         locations = Randomizer(locations);
@@ -77,6 +78,8 @@ public class GameController : MonoBehaviour
                 gameImage.transform.position = new Vector3(positionX, positionY, startPosition.z);
             }
         }
+        //vaihda tähän oikea ääni
+        FindObjectOfType<PlayerInfo>().characterVoices[playerInfo.mySellectedCharacter].GetComponent<PlrVoices>().voices[10].Play();
     }
 
     private void Update()
@@ -86,7 +89,7 @@ public class GameController : MonoBehaviour
             //vaihda tähän oikea ääni
             if(cantplay == false)
             {
-                generalVoices.koottuPalapeli.Play();
+                FindObjectOfType<PlayerInfo>().characterVoices[playerInfo.mySellectedCharacter].GetComponent<PlrVoices>().voices[13].Play();
                 cantplay = true;
             }
             

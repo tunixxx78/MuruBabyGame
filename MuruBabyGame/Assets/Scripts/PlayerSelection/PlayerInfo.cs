@@ -12,6 +12,8 @@ public class PlayerInfo : MonoBehaviour
 
     [SerializeField] Transform plrSpawnPosition;
     [SerializeField] GameObject plrSelectionPanel;
+
+    public bool hasStarted = false;
     
     private void OnEnable()
     {
@@ -56,6 +58,17 @@ public class PlayerInfo : MonoBehaviour
         {
             mySellectedCharacter = PlayerPrefs.GetInt("MyCharacter");
             PlayerPrefs.SetInt("MyCharacter", mySellectedCharacter);
+        }
+    }
+
+    private void Update()
+    {
+        if (hasStarted == false)
+        {
+            characterVoices[0] = GameObject.Find("AlvarVoices").GetComponent<AudioSource>();
+            characterVoices[1] = GameObject.Find("TaimiVoices").GetComponent<AudioSource>();
+
+            hasStarted = true;
         }
     }
 

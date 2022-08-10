@@ -62,6 +62,7 @@ public class RemoveHeatIcon : MonoBehaviour
                 sFX.frying.Play();
                 heatIconSpawner.SpawnHeatIcons();
                 gameManager.HeatAmount++;
+                
                 Destroy(hit2D.collider.gameObject);
             }
             else { return; }

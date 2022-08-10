@@ -1249,6 +1249,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   correctForm: {fileID: 968229883}
   cuttingboardObject: {fileID: 2076569722}
+  moving: 0
+  finnish: 0
+  hasStarted: 0
   spawnPoint: {fileID: 1760839423}
 --- !u!212 &347003999
 SpriteRenderer:
@@ -3577,6 +3580,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   correctForm: {fileID: 470109452}
   cuttingboardObject: {fileID: 214203100}
+  moving: 0
+  finnish: 0
+  hasStarted: 0
   spawnPoint: {fileID: 1760839423}
 --- !u!212 &1159939388
 SpriteRenderer:
@@ -3945,6 +3951,63 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1233799565
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 462365013494822659, guid: f950a80ce05d74ad8af802e9d4c53bda, type: 3}
+      propertyPath: m_Name
+      value: AlvarVoices
+      objectReference: {fileID: 0}
+    - target: {fileID: 462365013494822660, guid: f950a80ce05d74ad8af802e9d4c53bda, type: 3}
+      propertyPath: m_RootOrder
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 462365013494822660, guid: f950a80ce05d74ad8af802e9d4c53bda, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 462365013494822660, guid: f950a80ce05d74ad8af802e9d4c53bda, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 462365013494822660, guid: f950a80ce05d74ad8af802e9d4c53bda, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 462365013494822660, guid: f950a80ce05d74ad8af802e9d4c53bda, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 462365013494822660, guid: f950a80ce05d74ad8af802e9d4c53bda, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 462365013494822660, guid: f950a80ce05d74ad8af802e9d4c53bda, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 462365013494822660, guid: f950a80ce05d74ad8af802e9d4c53bda, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 462365013494822660, guid: f950a80ce05d74ad8af802e9d4c53bda, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 462365013494822660, guid: f950a80ce05d74ad8af802e9d4c53bda, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 462365013494822660, guid: f950a80ce05d74ad8af802e9d4c53bda, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f950a80ce05d74ad8af802e9d4c53bda, type: 3}
 --- !u!1 &1325337703
 GameObject:
   m_ObjectHideFlags: 0
@@ -4208,6 +4271,63 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4090877553885534697, guid: e0c3d4974353447b88cd29041b105614, type: 3}
   m_PrefabInstance: {fileID: 4090877552397816096}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1532993845
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4717102866767502613, guid: 6217299489f5c4c6ebd92ce2268e16a0, type: 3}
+      propertyPath: m_Name
+      value: TaimiVoices
+      objectReference: {fileID: 0}
+    - target: {fileID: 4717102866767502617, guid: 6217299489f5c4c6ebd92ce2268e16a0, type: 3}
+      propertyPath: m_RootOrder
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4717102866767502617, guid: 6217299489f5c4c6ebd92ce2268e16a0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4717102866767502617, guid: 6217299489f5c4c6ebd92ce2268e16a0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4717102866767502617, guid: 6217299489f5c4c6ebd92ce2268e16a0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4717102866767502617, guid: 6217299489f5c4c6ebd92ce2268e16a0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4717102866767502617, guid: 6217299489f5c4c6ebd92ce2268e16a0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4717102866767502617, guid: 6217299489f5c4c6ebd92ce2268e16a0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4717102866767502617, guid: 6217299489f5c4c6ebd92ce2268e16a0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4717102866767502617, guid: 6217299489f5c4c6ebd92ce2268e16a0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4717102866767502617, guid: 6217299489f5c4c6ebd92ce2268e16a0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4717102866767502617, guid: 6217299489f5c4c6ebd92ce2268e16a0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6217299489f5c4c6ebd92ce2268e16a0, type: 3}
 --- !u!4 &1553987674 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6257832638629098495, guid: 14145bfc3a25d4ae79dd9ea828fc0261, type: 3}
@@ -4938,6 +5058,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   correctForm: {fileID: 305290889}
   cuttingboardObject: {fileID: 563752145}
+  moving: 0
+  finnish: 0
+  hasStarted: 0
   spawnPoint: {fileID: 1760839423}
 --- !u!212 &2006491014
 SpriteRenderer:
@@ -5373,6 +5496,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   correctForm: {fileID: 161871361}
   cuttingboardObject: {fileID: 657903470}
+  moving: 0
+  finnish: 0
+  hasStarted: 0
   spawnPoint: {fileID: 1760839423}
 --- !u!212 &2062718002
 SpriteRenderer:

@@ -6,6 +6,7 @@ public class MoveSystem : MonoBehaviour
 {
     public GameObject correctForm, cuttingboardObject;
     bool moving, finnish;
+
     float startPosX, startPosY;
 
     Vector3 resetPosition;
@@ -14,20 +15,31 @@ public class MoveSystem : MonoBehaviour
 
     GameManager gameManager;
 
+    PlayerInfo playerInfo;
+
     private void Awake()
     {
         gameManager = FindObjectOfType<GameManager>();
+        
     }
 
     private void Start()
     {
+        playerInfo = FindObjectOfType<PlayerInfo>();
+
+        //playerInfo.characterVoices[0] = GameObject.Find("AlvarVoices").GetComponent<AudioSource>();
+        //playerInfo.characterVoices[1] = GameObject.Find("TaimiVoices").GetComponent<AudioSource>();
+
         resetPosition = this.transform.localPosition;
         gameManager.foodItems.Add(cuttingboardObject);
-        
+
+        FindObjectOfType<PlayerInfo>().characterVoices[playerInfo.mySellectedCharacter].GetComponent<PlrVoices>().voices[4].Play();
+
     }
 
     private void Update()
     {
+        
         if (finnish == false)
         {
             if (moving)

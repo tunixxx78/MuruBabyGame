@@ -12,9 +12,12 @@ public class ReadyFoodMoveSystem : MonoBehaviour
 
     GameManager gameManager;
 
+    PlayerInfo playerInfo;
+
     private void Awake()
     {
         gameManager = FindObjectOfType<GameManager>();
+        playerInfo = FindObjectOfType<PlayerInfo>();
     }
 
     private void Start()
@@ -82,6 +85,8 @@ public class ReadyFoodMoveSystem : MonoBehaviour
             gameManager.HeatAmount = 0;
             correctFormReadyFood.SetActive(false);
             this.gameObject.GetComponent<SpriteRenderer>().sprite = null;
+
+            FindObjectOfType<PlayerInfo>().characterVoices[playerInfo.mySellectedCharacter].GetComponent<PlrVoices>().voices[8].Play();
 
 
 

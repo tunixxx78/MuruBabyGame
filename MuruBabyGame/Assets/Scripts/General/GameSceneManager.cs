@@ -13,6 +13,8 @@ public class GameSceneManager : MonoBehaviour
     GeneralVoices generalVoices;
     [SerializeField] float currentVolume, startVolume, wantedVolume;
 
+    
+
     public int gameStatus;
 
     private void Awake()
@@ -39,6 +41,7 @@ public class GameSceneManager : MonoBehaviour
     {
         currentVolume = music.volume;
         StartCoroutine(FadeMusicOn());
+        FindObjectOfType<PlayerInfo>().hasStarted = false;
     }
 
     public void ChangeScene(int sceneIndex)

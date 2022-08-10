@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public bool canMove = false, canEat = false;
+    public bool canMove = false, canEat = false, isPlayiing = false;
     public List<GameObject> foodItems = new List<GameObject>();
 
     public GameObject cookingWare, correctForm, panInStove, emptyPlate;
@@ -14,6 +14,13 @@ public class GameManager : MonoBehaviour
 
     public int HeatAmount, maxHeat = 13;
     public thermoBar thermoBar;
+
+    PlayerInfo playerInfo;
+
+    private void Awake()
+    {
+        playerInfo = FindObjectOfType<PlayerInfo>();
+    }
 
     private void Start()
     {
@@ -39,6 +46,13 @@ public class GameManager : MonoBehaviour
             canMove = true;
 
             readyFoodAnimator.SetTrigger("ReadyNotice");
+
+            if (isPlayiing == false)
+            {
+                FindObjectOfType<PlayerInfo>().characterVoices[playerInfo.mySellectedCharacter].GetComponent<PlrVoices>().voices[7].Play();
+                isPlayiing = true;
+            }
+            
         }
 
         if (foodItems.Count <= 0)
@@ -57,16 +71,22 @@ public class GameManager : MonoBehaviour
         cookingWare.GetComponent<MoveSystemForCookingWare>().correctFormCookWare = correctForm;
         cookingWare.GetComponent<MoveSystemForCookingWare>().PanInStove = panInStove;
         panAnimator.SetTrigger("PanNotice");
+
+        FindObjectOfType<PlayerInfo>().characterVoices[playerInfo.mySellectedCharacter].GetComponent<PlrVoices>().voices[5].Play();
     }
 
     public void HeatingUpFood()
     {
         thermoMeter.SetActive(true);
         heaticonSpawner.SetActive(true);
+
+        FindObjectOfType<PlayerInfo>().characterVoices[playerInfo.mySellectedCharacter].GetComponent<PlrVoices>().voices[6].Play();
     }
 
     public void CurrentFinale()
     {
         levelClearedPanel.SetActive(true);
+
+        FindObjectOfType<PlayerInfo>().characterVoices[playerInfo.mySellectedCharacter].GetComponent<PlrVoices>().voices[9].Play();
     }
 }
