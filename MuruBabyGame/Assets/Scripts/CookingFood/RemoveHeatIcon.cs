@@ -13,6 +13,8 @@ public class RemoveHeatIcon : MonoBehaviour
 
     [SerializeField] Animator thermoAnimator;
 
+    ParticleSystem heatParticle;
+
     private void Awake()
     {
         heatIconSpawner = FindObjectOfType<HeatIconSpawner>();
@@ -22,6 +24,8 @@ public class RemoveHeatIcon : MonoBehaviour
         sFX = FindObjectOfType<SFX>();
 
         thermoAnimator = GameObject.Find("Canvas/ThermometerBar").GetComponent<Animator>();
+
+        heatParticle = GetComponentInChildren<ParticleSystem>();
     }
 
     private void Update()
@@ -62,8 +66,10 @@ public class RemoveHeatIcon : MonoBehaviour
                 sFX.frying.Play();
                 heatIconSpawner.SpawnHeatIcons();
                 gameManager.HeatAmount++;
-                
-                Destroy(hit2D.collider.gameObject);
+
+                GetComponent<SpriteRenderer>().sprite = null;
+                heatParticle.Play();
+                Destroy(hit2D.collider.gameObject, 0.2f);
             }
             else { return; }
         }
