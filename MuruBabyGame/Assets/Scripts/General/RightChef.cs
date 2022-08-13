@@ -7,7 +7,7 @@ public class RightChef : MonoBehaviour
 {
     [SerializeField] Sprite[] chefFaces;
     [SerializeField] int plrIndex;
-    [SerializeField] GameObject face;
+    [SerializeField] GameObject face, taimiHat, generalHat;
 
     private void Awake()
     {
@@ -18,5 +18,16 @@ public class RightChef : MonoBehaviour
     private void Start()
     {
         face.GetComponent<Image>().sprite = chefFaces[plrIndex];
+
+        if(plrIndex == 1)
+        {
+            taimiHat.SetActive(true);
+            generalHat.SetActive(false);
+        }
+        else
+        {
+            taimiHat.SetActive(false);
+            generalHat.SetActive(true);
+        }
     }
 }

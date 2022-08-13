@@ -37,7 +37,7 @@ public class PlayerInfo : MonoBehaviour
     {
         characterVoices[0] = GameObject.Find("AlvarVoices").GetComponent<AudioSource>();
         characterVoices[1] = GameObject.Find("TaimiVoices").GetComponent<AudioSource>();
-
+        characterVoices[2] = GameObject.Find("OliverVoices").GetComponent<AudioSource>();
     }
 
     private void Start()
@@ -67,6 +67,7 @@ public class PlayerInfo : MonoBehaviour
         {
             characterVoices[0] = GameObject.Find("AlvarVoices").GetComponent<AudioSource>();
             characterVoices[1] = GameObject.Find("TaimiVoices").GetComponent<AudioSource>();
+            characterVoices[2] = GameObject.Find("OliverVoices").GetComponent<AudioSource>();
 
             hasStarted = true;
         }

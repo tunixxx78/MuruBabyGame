@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
-    public const int columns = 3, rows = 2;
+    public const int columns = 5, rows = 2;
 
     public const float xspace = 4f, yspace = -5f;
 
@@ -49,7 +49,7 @@ public class GameController : MonoBehaviour
     {
         
 
-        int[] locations = { 0, 0, 1, 1, 2, 2 };
+        int[] locations = { 0, 0, 1, 1, 2, 2, 3, 3, 4, 4 };
         locations = Randomizer(locations);
 
         Vector3 startPosition = startObject.transform.position;
@@ -84,7 +84,7 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
-        if(score >= 3)
+        if(score >= 5)
         {
             //vaihda tähän oikea ääni
             if(cantplay == false)

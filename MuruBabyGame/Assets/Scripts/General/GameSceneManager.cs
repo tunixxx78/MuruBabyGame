@@ -41,7 +41,12 @@ public class GameSceneManager : MonoBehaviour
     {
         currentVolume = music.volume;
         StartCoroutine(FadeMusicOn());
-        FindObjectOfType<PlayerInfo>().hasStarted = false;
+        Scene scene = SceneManager.GetActiveScene();
+        if(scene.buildIndex != 0)
+        {
+            FindObjectOfType<PlayerInfo>().hasStarted = false;
+        }
+        
     }
 
     public void ChangeScene(int sceneIndex)

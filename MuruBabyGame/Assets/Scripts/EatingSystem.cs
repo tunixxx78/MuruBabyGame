@@ -40,7 +40,8 @@ public class EatingSystem : MonoBehaviour
         if (cookingPhase == cookingPhases.Length - 1 && cantAdd == false)
         {
             cantAdd = true;
-            gameManager.CurrentFinale();
+            //gameManager.CurrentFinale();
+            StartCoroutine(LoopIsOver(1));
         }
     }
 
@@ -51,4 +52,10 @@ public class EatingSystem : MonoBehaviour
         GetComponent<SpriteRenderer>().sprite = cookingPhases[cookingPhase];
     }
 
+    IEnumerator LoopIsOver(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        gameManager.CurrentFinale();
+    }
 }
