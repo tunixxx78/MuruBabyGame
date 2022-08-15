@@ -24,10 +24,12 @@ public class GameController : MonoBehaviour
     bool cantplay = false;
 
     [SerializeField] PlayerInfo playerInfo;
+    SFX sFX;
 
     private void Awake()
     {
         playerInfo = FindObjectOfType<PlayerInfo>();
+        sFX = FindObjectOfType<SFX>();
     }
 
     private int[] Randomizer(int[] locations)
@@ -47,7 +49,9 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
-        
+        playerInfo.characterVoices[0] = GameObject.Find("AlvarVoices").GetComponent<AudioSource>();
+        playerInfo.characterVoices[1] = GameObject.Find("TaimiVoices").GetComponent<AudioSource>();
+        playerInfo.characterVoices[2] = GameObject.Find("OliverVoices").GetComponent<AudioSource>();
 
         int[] locations = { 0, 0, 1, 1, 2, 2, 3, 3, 4, 4 };
         locations = Randomizer(locations);
@@ -79,7 +83,7 @@ public class GameController : MonoBehaviour
             }
         }
         //vaihda tähän oikea ääni
-        FindObjectOfType<PlayerInfo>().characterVoices[playerInfo.mySellectedCharacter].GetComponent<PlrVoices>().voices[10].Play();
+        FindObjectOfType<PlayerInfo>().characterVoices[playerInfo.mySellectedCharacter].GetComponent<PlrVoices>().voices[12].Play();
     }
 
     private void Update()
@@ -89,6 +93,7 @@ public class GameController : MonoBehaviour
             //vaihda tähän oikea ääni
             if(cantplay == false)
             {
+                sFX.winning.Play();
                 FindObjectOfType<PlayerInfo>().characterVoices[playerInfo.mySellectedCharacter].GetComponent<PlrVoices>().voices[13].Play();
                 cantplay = true;
             }
@@ -108,10 +113,12 @@ public class GameController : MonoBehaviour
         if(firstOpen == null)
         {
             firstOpen = startObject;
+            sFX.pickingThings.Play();
         }
         else
         {
             secondOpen = startObject;
+            sFX.pickingThings.Play();
             StartCoroutine(CheckGuessed());
         }
     }

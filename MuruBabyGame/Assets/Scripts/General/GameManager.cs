@@ -16,10 +16,12 @@ public class GameManager : MonoBehaviour
     public thermoBar thermoBar;
 
     PlayerInfo playerInfo;
+    SFX sFX;
 
     private void Awake()
     {
         playerInfo = FindObjectOfType<PlayerInfo>();
+        sFX = FindObjectOfType<SFX>();
     }
 
     private void Start()
@@ -86,6 +88,7 @@ public class GameManager : MonoBehaviour
     public void CurrentFinale()
     {
         levelClearedPanel.SetActive(true);
+        sFX.winning.Play();
 
         FindObjectOfType<PlayerInfo>().characterVoices[playerInfo.mySellectedCharacter].GetComponent<PlrVoices>().voices[9].Play();
     }

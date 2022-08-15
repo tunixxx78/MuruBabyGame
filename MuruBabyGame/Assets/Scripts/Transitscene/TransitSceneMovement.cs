@@ -39,7 +39,7 @@ public class TransitSceneMovement : MonoBehaviour
     {
         playerInfo.characterVoices[0] = GameObject.Find("AlvarVoices").GetComponent<AudioSource>();
         playerInfo.characterVoices[1] = GameObject.Find("TaimiVoices").GetComponent<AudioSource>();
-
+        playerInfo.characterVoices[2] = GameObject.Find("OliverVoices").GetComponent<AudioSource>();
 
         targetIndex = PlayerPrefs.GetInt("TargetLevelIndex");
         followCam.target = this.gameObject.transform;
@@ -101,6 +101,7 @@ public class TransitSceneMovement : MonoBehaviour
     {
         if (isGrounded)
         {
+            sFX.jump.Play();
             avatarAnimator.SetTrigger("AlvarJump");
             avatarAnimator.SetBool("AlvarRun", false);
             plrRB.velocity = new Vector3(plrRB.velocity.y, jumpForce);

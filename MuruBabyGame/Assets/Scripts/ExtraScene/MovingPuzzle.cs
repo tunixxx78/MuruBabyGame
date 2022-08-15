@@ -11,10 +11,12 @@ public class MovingPuzzle : MonoBehaviour
     Vector3 resetPosition;
 
     PuzzleManager puzzleManager;
+    SFX sFX;
 
     private void Awake()
     {
         puzzleManager = FindObjectOfType<PuzzleManager>();
+        sFX = FindObjectOfType<SFX>();
     }
 
     private void Start()
@@ -44,6 +46,7 @@ public class MovingPuzzle : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            sFX.pickingThings.Play();
             Vector3 mousePos;
             mousePos = Input.mousePosition;
             mousePos = Camera.main.ScreenToWorldPoint(mousePos);
@@ -64,6 +67,7 @@ public class MovingPuzzle : MonoBehaviour
             this.transform.position = new Vector3(correctForm.transform.position.x, correctForm.transform.position.y, correctForm.transform.position.z);
             if(onPos == false)
             {
+                sFX.pickingThings.Play();
                 puzzleManager.puzzlePoints++;
             }
             
